@@ -32,9 +32,9 @@ export type CustomSource = {
   // TODO(v3): Make `sign` required.
   sign?: ((parameters: { hash: Hash }) => Promise<Hash>) | undefined
   experimental_signAuthorization?:
-    | ((
-        authorization: SignAuthorizationParameters['authorization'],
-      ) => Promise<SignAuthorizationReturnType>)
+    | ((parameters: {
+        authorization: SignAuthorizationParameters['authorization']
+      }) => Promise<SignAuthorizationReturnType>)
     | undefined
   signMessage: ({ message }: { message: SignableMessage }) => Promise<Hash>
   signTransaction: <
